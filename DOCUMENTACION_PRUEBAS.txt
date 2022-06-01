@@ -1,0 +1,211 @@
+PRUEBAS DE API:
+
+1. Verificación de error
+
+		GET http://localhost:8080
+		
+		OUTPUT: {
+					"error": 404,
+					"descripcion": "ruta / no implementada y GET no autorizada"
+				}
+				
+2. 
+
+		GET http://localhost:8080/api/productos
+		
+		OUTPUT: [
+					{
+						"nombre": "Escuadra",
+						"descripcion": "Una foto de una escuadra",
+						"url": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
+						"precio": 123.45,
+						"id": 1
+					},
+					{
+						"nombre": "Calculadora",
+						"descripcion": "Una foto de una calculadora",
+						"url": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png",
+						"precio": 234.56,
+						"id": 2
+					},
+					{
+						"nombre": "Globo Terráqueo",
+						"descripcion": "Una foto de un globo terráqueo",
+						"url": "https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png",
+						"precio": 345.67,
+						"id": 3
+					}
+				]
+				
+3.
+
+		GET http://localhost:8080/api/productos/:id   (con id = 1)
+		
+		OUTPUT: {
+					"nombre": "Escuadra",
+					"descripcion": "Una foto de una escuadra",
+					"url": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
+					"precio": 123.45,
+					"id": 1
+				}
+				
+4. 
+
+		POST http://localhost:8080/api/productos
+		
+		OUTPUT: {
+					"status": 404,
+					"description": "You are not authorized"
+				}
+				
+5. 	
+
+		GET http://localhost:8080/login
+		
+		OUTPUT: {
+					"status": 200,
+					"description": "Ahora estás logueado como admin"
+				}
+				
+
+6.		
+		POST http://localhost:8080/api/productos
+		
+		OUTPUT: {
+					"nombre": "test_name",
+					"descripcion": "test description",
+					"url": "www.test.com",
+					"precio": "1",
+					"id": 1654055327897
+				}
+				
+7.
+
+		PUT http://localhost:8080/api/productos/:id?nombre=test_name&descripcion=test description&url=www.test_2.com&precio=200
+		
+		OUTPUT: {
+					"nombre": "test_name",
+					"descripcion": "test description",
+					"url": "www.test_2.com",
+					"precio": "1212",
+					"id": 1654055327897
+				}
+				
+8.
+
+		DELETE http://localhost:8080/api/productos/:id 				(con id = 1654055327897)
+		
+		OUTPUT: [
+					{
+						"nombre": "Escuadra",
+						"descripcion": "Una foto de una escuadra",
+						"url": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
+						"precio": 123.45,
+						"id": 1
+					},
+					{
+						"nombre": "Calculadora",
+						"descripcion": "Una foto de una calculadora",
+						"url": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png",
+						"precio": 234.56,
+						"id": 2
+					},
+					{
+						"nombre": "Globo Terráqueo",
+						"descripcion": "Una foto de un globo terráqueo",
+						"url": "https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png",
+						"precio": 345.67,
+						"id": 3
+					}
+				]
+				
+				
+9.
+		GET: http://localhost:8080/logout
+
+		OUTPUT: {
+				"status": 200,
+				"description": "Desconectado como admin"
+			}
+
+
+CARRITO:
+
+10.
+		GET http://localhost:8080/api/carritos
+		
+		OUTPUT: [
+				  {
+					"id": 1654055989624,
+					"producto": []
+				  }
+				]
+				
+11. 
+
+		POST http://localhost:8080/api/carritos/:id/productos?id=1
+		
+		OUTPUT: [
+				  {
+					"id": 1654055989624,
+					"producto": [
+					  {
+						"nombre": "Escuadra",
+						"descripcion": "Una foto de una escuadra",
+						"url": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
+						"precio": 123.45,
+						"id": 1
+					  }
+					]
+				  }
+				]
+				
+
+12. 	GET http://localhost:8080/api/carritos/:id/productos 			(con :id = 1654055989624)
+
+		OUTPUT: {
+					"id": 1654055989624,
+					"producto": [
+						{
+							"nombre": "Escuadra",
+							"descripcion": "Una foto de una escuadra",
+							"url": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
+							"precio": 123.45,
+							"id": 1
+						},
+						{
+							"nombre": "Calculadora",
+							"descripcion": "Una foto de una calculadora",
+							"url": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png",
+							"precio": 234.56,
+							"id": 2
+						}
+					]
+				}
+				
+
+13.		DELETE: http://localhost:8080/api/carritos/:id_carrito/productos/:id_producto 	(con id_carrito = 1654055989624 y id_producto = 2)
+
+		OUTPUT: {
+					"id": 1654055989624,
+					"producto": [
+						{
+							"nombre": "Escuadra",
+							"descripcion": "Una foto de una escuadra",
+							"url": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
+							"precio": 123.45,
+							"id": 1
+						}
+					]
+				}
+				
+15. 	DELETE http://localhost:8080/api/carritos/:id 				(con id = 1654055989624)
+
+		OUTPUT: [
+				  {
+					"id": 1654055989624,
+					"producto": []
+				  }
+				]
+
+		
