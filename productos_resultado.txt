@@ -1,0 +1,23 @@
+[
+  {
+    "nombre": "Escuadra",
+    "descripcion": "Una foto de una escuadra",
+    "url": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
+    "precio": 123.45,
+    "id": 1
+  },
+  {
+    "nombre": "Calculadora",
+    "descripcion": "Una foto de una calculadora",
+    "url": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png",
+    "precio": 234.56,
+    "id": 2
+  },
+  {
+    "nombre": "Globo Terráqueo",
+    "descripcion": "Una foto de un globo terráqueo",
+    "url": "https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png",
+    "precio": 345.67,
+    "id": 3
+  }
+]
