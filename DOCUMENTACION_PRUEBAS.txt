@@ -1,5 +1,7 @@
 PRUEBAS DE API:
 
+PRODUCTO:
+
 1. Verificación de error
 
 		GET http://localhost:8080
@@ -9,7 +11,7 @@ PRUEBAS DE API:
 					"descripcion": "ruta / no implementada y GET no autorizada"
 				}
 				
-2. 
+2. GetAll a todos los productos
 
 		GET http://localhost:8080/api/productos
 		
@@ -37,7 +39,7 @@ PRUEBAS DE API:
 					}
 				]
 				
-3.
+3. GetById con id = 1
 
 		GET http://localhost:8080/api/productos/:id   (con id = 1)
 		
@@ -49,7 +51,7 @@ PRUEBAS DE API:
 					"id": 1
 				}
 				
-4. 
+4. Prueba de POST con error por no estar logueado como admin
 
 		POST http://localhost:8080/api/productos
 		
@@ -58,7 +60,7 @@ PRUEBAS DE API:
 					"description": "You are not authorized"
 				}
 				
-5. 	
+5. Logueo como admin	
 
 		GET http://localhost:8080/login
 		
@@ -68,7 +70,8 @@ PRUEBAS DE API:
 				}
 				
 
-6.		
+6. Prueba POST		
+
 		POST http://localhost:8080/api/productos
 		
 		OUTPUT: {
@@ -79,7 +82,7 @@ PRUEBAS DE API:
 					"id": 1654055327897
 				}
 				
-7.
+7. Prueba PUT
 
 		PUT http://localhost:8080/api/productos/:id?nombre=test_name&descripcion=test description&url=www.test_2.com&precio=200
 		
@@ -91,7 +94,7 @@ PRUEBAS DE API:
 					"id": 1654055327897
 				}
 				
-8.
+8. Prueba DELETE
 
 		DELETE http://localhost:8080/api/productos/:id 				(con id = 1654055327897)
 		
@@ -120,7 +123,7 @@ PRUEBAS DE API:
 				]
 				
 				
-9.
+9. Logout como admin
 		GET: http://localhost:8080/logout
 
 		OUTPUT: {
@@ -131,7 +134,8 @@ PRUEBAS DE API:
 
 CARRITO:
 
-10.
+10. Inicia creando el primer carrito 
+ 
 		GET http://localhost:8080/api/carritos
 		
 		OUTPUT: [
@@ -141,7 +145,7 @@ CARRITO:
 				  }
 				]
 				
-11. 
+11. Añade primer producto de acuerdo al catalogo de productos disponibles
 
 		POST http://localhost:8080/api/carritos/:id/productos?id=1
 		
@@ -161,7 +165,9 @@ CARRITO:
 				]
 				
 
-12. 	GET http://localhost:8080/api/carritos/:id/productos 			(con :id = 1654055989624)
+12. GET de productos filtrando por id de carrito 	
+
+		GET http://localhost:8080/api/carritos/:id/productos 			(con :id = 1654055989624)
 
 		OUTPUT: {
 					"id": 1654055989624,
@@ -184,7 +190,9 @@ CARRITO:
 				}
 				
 
-13.		DELETE: http://localhost:8080/api/carritos/:id_carrito/productos/:id_producto 	(con id_carrito = 1654055989624 y id_producto = 2)
+13. Elimina un producto del carrito		
+
+		DELETE: http://localhost:8080/api/carritos/:id_carrito/productos/:id_producto 	(con id_carrito = 1654055989624 y id_producto = 2)
 
 		OUTPUT: {
 					"id": 1654055989624,
@@ -199,7 +207,9 @@ CARRITO:
 					]
 				}
 				
-15. 	DELETE http://localhost:8080/api/carritos/:id 				(con id = 1654055989624)
+15. Elimina todos los productos del carrito	
+
+		DELETE http://localhost:8080/api/carritos/:id 				(con id = 1654055989624)
 
 		OUTPUT: [
 				  {
