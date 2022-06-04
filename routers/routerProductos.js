@@ -15,10 +15,10 @@ function checkAdmin (req, res, next) {
 routerProductos.use(express.json());
 routerProductos.use(express.urlencoded({extended: true}));
 
-routerProductos.get('/api/productos', productsController.getAll);
-routerProductos.post('/api/productos', checkAdmin, productsController.save);
-routerProductos.get('/api/productos/:id', productsController.getById);
-routerProductos.delete('/api/productos/:id',checkAdmin , productsController.deleteById);
-routerProductos.put('/api/productos/:id', checkAdmin ,productsController.replaceProduct);
+routerProductos.get('/', productsController.getAll);
+routerProductos.post('/', checkAdmin, productsController.save);
+routerProductos.get('/:id', productsController.getById);
+routerProductos.delete('/:id',checkAdmin , productsController.deleteById);
+routerProductos.put('/:id', checkAdmin ,productsController.replaceProduct);
 
 module.exports = { routerProductos };
